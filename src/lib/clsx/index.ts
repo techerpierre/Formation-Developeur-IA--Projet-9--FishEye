@@ -3,7 +3,7 @@
  * @param classNames Classes to merge
  */
 export default function clsx(
-  ...classNames: (string | null | undefined | false)[]
+    ...classNames: (string | null | undefined | false)[]
 ): string {
-  return classNames.filter(Boolean).join(' ');
+    return classNames.filter(Boolean).join(' ')
 }
