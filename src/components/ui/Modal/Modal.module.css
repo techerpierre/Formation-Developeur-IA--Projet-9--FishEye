@@ -1,0 +1,44 @@
+.modal {
+    border: none;
+    background-color: var(--bg-secondary);
+    width: min(669px, 100%);
+    margin: auto;
+}
+
+.modal::backdrop {
+    background-color: white;
+    opacity: 0.5;
+}
+
+.modal .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.modal .title {
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--fg-on-bg-secondary);
+}
+
+.modal .close {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal .content {
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .modal .title {
+        font-size: 30px;
+    }
+
+    .modal .close img {
+        width: 40px;
+        height: auto;
+    }
+}

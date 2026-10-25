@@ -1,0 +1,12 @@
+.input {
+    height: 68px;
+    border-radius: 5px;
+    background-color: var(--bg-default);
+    border: none;
+    font-size: 36px;
+}
+
+.input:focus {
+    outline: solid 3px black;
+    outline-offset: 2px;
+}

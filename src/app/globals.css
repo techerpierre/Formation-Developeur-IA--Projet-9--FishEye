@@ -2,6 +2,7 @@
     /* Background */
     --bg-primary: #901c1c;
     --bg-secondary: #db8876;
+    --bg-default: #ffffff;
 
     /* Foreground */
     --fg-on-bg-primary: #ffffff;
@@ -29,6 +30,7 @@ html,
 body {
     width: 100%;
     min-height: 100vh;
+    background-color: var(--bg-default);
 }
 
 body {

@@ -12,7 +12,7 @@ export const Navbar: React.FC<Props> = ({ title }) => {
         <header className={styles.navbar}>
             <Link href="/" aria-label="Retour à l'accueil FishEye">
                 <Image
-                    src="logo.svg"
+                    src="/logo.svg"
                     alt=""
                     width={200}
                     className={styles.logo}

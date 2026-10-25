@@ -1,0 +1,13 @@
+.form {
+    padding: 0 30px 30px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form .message {
+    resize: none;
+}
+
+.form .submit {
+    margin-top: 40px;
+}
