@@ -1,0 +1,20 @@
+.button {
+    --button-bg: var(--bg-primary);
+    --button-fg: var(--fg-on-bg-primary);
+
+    width: 170px;
+    height: 69px;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    border-radius: 5px;
+    border: none;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    --button-bg: var(--bg-secondary);
+    --button-fg: var(--fg-on-bg-secondary);
+}

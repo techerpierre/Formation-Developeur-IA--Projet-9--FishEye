@@ -1,0 +1,9 @@
+.photographers {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(max(250px, calc(100% / 3)), 1fr)
+    );
+    row-gap: 40px;
+    padding: 40px 0;
+}

@@ -1,3 +1,18 @@
+:root {
+    /* Background */
+    --bg-primary: #901c1c;
+    --bg-secondary: #db8876;
+
+    /* Foreground */
+    --fg-on-bg-primary: #ffffff;
+    --fg-on-bg-secondary: #000000;
+
+    --fg-primary: #d3573c;
+    --fg-secondary: #901c1c;
+    --fg-light: #525252;
+    --fg-default: #000000;
+}
+
 *,
 ::before,
 ::after {
@@ -6,4 +21,17 @@
     margin: 0;
     text-decoration: none;
     list-style-type: none;
+    font-family: inherit;
+    color: var(--fg-default);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body {
+    max-width: 1400px;
+    margin: auto;
 }
