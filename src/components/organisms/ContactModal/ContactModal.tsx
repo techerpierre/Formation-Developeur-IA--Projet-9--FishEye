@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button } from '@/components/ui/Button/Button'
-import { FormField } from '@/components/ui/FormField/FormField'
-import { Modal } from '@/components/ui/Modal/Modal'
-import { TextInput } from '@/components/ui/TextInput/TextInput'
+import { Button } from '@/components/atoms/Button/Button'
+import { FormField } from '@/components/molecules/FormField/FormField'
+import { Modal } from '@/components/atoms/Modal/Modal'
+import { TextInput } from '@/components/atoms/TextInput/TextInput'
 import { Photographer } from '@/lib/prisma/generated/client'
 import styles from './ContactModal.module.css'
-import { TextArea } from '@/components/ui/TextArea/TextArea'
+import { TextArea } from '@/components/atoms/TextArea/TextArea'
 
 type Props = {
     photographer: Photographer

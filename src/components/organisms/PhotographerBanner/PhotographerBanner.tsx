@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Photographer } from '@/lib/prisma/generated/client'
-import { ContactModal } from '@/components/modals/ContactModal/ContactModal'
+import { ContactModal } from '@/components/organisms/ContactModal/ContactModal'
 import styles from './PhotographerBanner.module.css'
 
 type Props = {

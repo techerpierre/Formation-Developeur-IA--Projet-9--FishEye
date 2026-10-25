@@ -1,4 +1,4 @@
-import { Navbar } from '@/components/navigation/Navbar/Navbar'
+import { Navbar } from '@/components/organisms/Navbar/Navbar'
 import React from 'react'
 
 type Props = React.PropsWithChildren & {

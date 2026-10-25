@@ -1,5 +1,5 @@
 import { getAllPhotographers } from '@/use-cases/photographer'
-import { PhotographerCard } from '@/components/cards/PhotographerCard/PhotographerCard'
+import { PhotographerCard } from '@/components/organisms/PhotographerCard/PhotographerCard'
 import { PageLayout } from '@/components/layouts/PageLayout/PageLayout'
 import styles from './page.module.css'
 
