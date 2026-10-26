@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/atoms/Button/Button'
 import { FormField } from '@/components/molecules/FormField/FormField'
 import { Modal } from '@/components/atoms/Modal/Modal'
@@ -8,13 +8,14 @@ import { TextInput } from '@/components/atoms/TextInput/TextInput'
 import { Photographer } from '@/lib/prisma/generated/client'
 import styles from './ContactModal.module.css'
 import { TextArea } from '@/components/atoms/TextArea/TextArea'
+import { useQueryFlag } from '@/hooks/useQueryFlag'
 
 type Props = {
     photographer: Photographer
 }
 
 export const ContactModal: React.FC<Props> = ({ photographer }) => {
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useQueryFlag('contact')
 
     const handleFormSubmit = (event: React.SubmitEvent) => {
         event.preventDefault()
@@ -42,9 +43,15 @@ export const ContactModal: React.FC<Props> = ({ photographer }) => {
                         <TextInput type="text" id="email" />
                     </FormField>
                     <FormField label="Votre message" htmlFor="message">
-                        <TextArea id="message" rows={4} className={styles.message}/>
+                        <TextArea
+                            id="message"
+                            rows={4}
+                            className={styles.message}
+                        />
                     </FormField>
-                    <Button type="submit" className={styles.submit}>Envoyer</Button>
+                    <Button type="submit" className={styles.submit}>
+                        Envoyer
+                    </Button>
                 </form>
             </Modal>
         </>
