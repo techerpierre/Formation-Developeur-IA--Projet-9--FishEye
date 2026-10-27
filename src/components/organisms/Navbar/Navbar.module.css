@@ -1,22 +1,13 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 24px;
-}
-
-.navbar .title {
-    font-size: 36px;
-    color: var(--fg-secondary);
-    font-weight: 400;
+    align-items: center;
+    padding: var(--space-5);
 }
 
 @media (max-width: 1024px) {
     .navbar .logo {
         width: 100px;
         height: auto;
-    }
-
-    .navbar .title {
-        font-size: 24px;
     }
 }

@@ -1,7 +1,7 @@
 //import styles from "./page.module.css";
 
 import { PhotographerBanner } from '@/components/organisms/PhotographerBanner/PhotographerBanner'
-import { PageLayout } from '@/components/layouts/PageLayout/PageLayout'
+import { PageLayout } from '@/components/templates/PageLayout/PageLayout'
 import { getPhotographer } from '@/use-cases/photographer'
 import { notFound } from 'next/navigation'
 

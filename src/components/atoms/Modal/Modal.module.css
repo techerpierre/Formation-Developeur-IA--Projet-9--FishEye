@@ -13,19 +13,19 @@
 .modal .header {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    gap: var(--space-4);
+    padding: var(--space-6);
 }
 
 .modal .title {
-    font-weight: 400;
-    font-size: 48px;
-    color: var(--fg-on-bg-secondary);
+    flex: 1;
 }
 
 .modal .close {
     background: none;
     border: none;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .modal .content {
@@ -33,10 +33,6 @@
 }
 
 @media (max-width: 768px) {
-    .modal .title {
-        font-size: 30px;
-    }
-
     .modal .close img {
         width: 40px;
         height: auto;

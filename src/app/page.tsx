@@ -1,6 +1,6 @@
 import { getAllPhotographers } from '@/use-cases/photographer'
 import { PhotographerCard } from '@/components/organisms/PhotographerCard/PhotographerCard'
-import { PageLayout } from '@/components/layouts/PageLayout/PageLayout'
+import { PageLayout } from '@/components/templates/PageLayout/PageLayout'
 import styles from './page.module.css'
 
 export default async function Home() {

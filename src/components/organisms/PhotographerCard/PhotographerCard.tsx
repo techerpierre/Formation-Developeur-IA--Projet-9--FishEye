@@ -2,6 +2,7 @@ import React from 'react'
 import { Photographer } from '@/lib/prisma/generated/client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Text } from '@/components/atoms/Text/Text'
 import styles from './PhotographerCard.module.css'
 
 type Props = {
@@ -22,12 +23,16 @@ export const PhotographerCard: React.FC<Props> = ({ photographer }) => {
                     height={200}
                     className={styles.portrait}
                 />
-                <h2 className={styles.name}>{photographer.name}</h2>
-                <p className={styles.location}>
+                <Text.H2 size="xxl" color="primary">
+                    {photographer.name}
+                </Text.H2>
+                <Text.P size="sm" color="secondary">
                     {photographer.city}, {photographer.country}
-                </p>
-                <p className={styles.tagline}>{photographer.tagline}</p>
-                <p className={styles.price}>{photographer.price}€/jour</p>
+                </Text.P>
+                <Text.P size="sm">{photographer.tagline}</Text.P>
+                <Text.P size="xs" color="light">
+                    {photographer.price}€/jour
+                </Text.P>
             </article>
         </Link>
     )

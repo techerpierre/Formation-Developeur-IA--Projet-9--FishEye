@@ -1,5 +1,6 @@
 import React from 'react'
 import clsx from '@/lib/clsx'
+import { Text } from '@/components/atoms/Text/Text'
 import styles from './FormField.module.css'
 
 type Props = React.ComponentProps<'div'> & {
@@ -17,9 +18,9 @@ export const FormField: React.FC<Props> = ({
     return (
         <div className={clsx(styles.field, className)} {...rest}>
             {label && (
-                <label htmlFor={htmlFor} className={styles.label}>
+                <Text.Label htmlFor={htmlFor} size="xl" color="light">
                     {label}
-                </label>
+                </Text.Label>
             )}
             {children}
         </div>

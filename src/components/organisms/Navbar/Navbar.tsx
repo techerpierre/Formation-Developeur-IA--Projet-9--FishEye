@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
-import styles from './Navbar.module.css'
 import Link from 'next/link'
+import { Text } from '@/components/atoms/Text/Text'
+import styles from './Navbar.module.css'
 
 type Props = {
     title?: string
@@ -19,7 +20,11 @@ export const Navbar: React.FC<Props> = ({ title }) => {
                     height={50}
                 />
             </Link>
-            {title && <h1 className={styles.title}>{title}</h1>}
+            {title && (
+                <Text.H1 size="xxl" color="secondary">
+                    {title}
+                </Text.H1>
+            )}
         </header>
     )
 }

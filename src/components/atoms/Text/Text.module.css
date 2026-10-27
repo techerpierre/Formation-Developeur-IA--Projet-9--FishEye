@@ -1,0 +1,55 @@
+.text {
+    font-weight: 400;
+}
+
+.xs {
+    font-size: var(--text-xs);
+}
+
+.sm {
+    font-size: var(--text-sm);
+}
+
+.md {
+    font-size: var(--text-md);
+}
+
+.lg {
+    font-size: var(--text-lg);
+}
+
+.xl {
+    font-size: var(--text-xl);
+}
+
+.xxl {
+    font-size: var(--text-2xl);
+}
+
+.xxxl {
+    font-size: var(--text-3xl);
+}
+
+.default {
+    color: var(--fg-default);
+}
+
+.primary {
+    color: var(--fg-primary);
+}
+
+.secondary {
+    color: var(--fg-secondary);
+}
+
+.light {
+    color: var(--fg-light);
+}
+
+.on-primary {
+    color: var(--fg-on-bg-primary);
+}
+
+.on-secondary {
+    color: var(--fg-on-bg-secondary);
+}

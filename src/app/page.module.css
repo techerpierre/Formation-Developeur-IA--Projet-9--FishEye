@@ -4,6 +4,6 @@
         auto-fit,
         minmax(max(250px, calc(100% / 3)), 1fr)
     );
-    row-gap: 40px;
-    padding: 40px 0;
+    row-gap: var(--space-7);
+    padding: var(--space-7) 0;
 }

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import React, { useEffect, useId, useRef } from 'react'
+import { Text } from '@/components/atoms/Text/Text'
 import styles from './Modal.module.css'
 
 type Props = React.PropsWithChildren & {
@@ -37,9 +38,14 @@ export const Modal: React.FC<Props> = ({
             onClick={handleDialogClick}
         >
             <div className={styles.header}>
-                <h2 id={titleId} className={styles.title}>
+                <Text.H2
+                    id={titleId}
+                    size="xxxl"
+                    color="on-secondary"
+                    className={styles.title}
+                >
                     {title}
-                </h2>
+                </Text.H2>
                 <button
                     onClick={onCloseRequest}
                     aria-label="Fermer la modal"

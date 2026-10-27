@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px;
+    padding: var(--space-7);
 }
 
 .banner .portrait {
@@ -10,38 +10,14 @@
     border-radius: 100px;
 }
 
-.banner .name {
-    font-weight: 400;
-    font-size: 64px;
-    color: var(--fg-primary);
-}
-
-.banner .location {
-    font-weight: 400;
-    font-size: 24px;
-    color: var(--fg-secondary);
-}
-
-.banner .tagline {
-    font-weight: 400;
-    font-size: 18px;
-    color: var(--fg-light);
-}
-
 @media (max-width: 768px) {
     .banner {
         flex-direction: column-reverse;
-        gap: 20px;
+        gap: var(--space-5);
         justify-content: flex-start;
     }
 
-    .banner .name {
-        font-size: 48px;
-    }
-
-    .banner .name,
-    .banner .location,
-    .banner .tagline {
+    .banner .info {
         text-align: center;
     }
 }
