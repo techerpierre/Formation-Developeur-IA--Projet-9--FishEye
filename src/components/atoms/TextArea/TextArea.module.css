@@ -1,9 +1,9 @@
 .textarea {
-    min-height: 68px;
+    min-height: 48px;
     border-radius: 5px;
     background-color: var(--bg-default);
     border: none;
-    font-size: var(--text-xl);
+    font-size: var(--text-md);
     padding: var(--space-4);
 }
 
