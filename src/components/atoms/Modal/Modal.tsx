@@ -51,7 +51,7 @@ export const Modal: React.FC<Props> = ({
                     aria-label="Fermer la modal"
                     className={styles.close}
                 >
-                    <Image src="/close.svg" alt="" width={72} height={72} />
+                    <Image src="/close.svg" alt="" width={42} height={42} />
                 </button>
             </div>
             <div className={styles.content}>{children}</div>
