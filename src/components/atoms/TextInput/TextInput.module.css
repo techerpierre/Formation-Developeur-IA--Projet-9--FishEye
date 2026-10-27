@@ -1,9 +1,9 @@
 .input {
-    height: 68px;
+    height: 48px;
     border-radius: 5px;
     background-color: var(--bg-default);
     border: none;
-    font-size: var(--text-xl);
+    font-size: var(--text-md);
     padding: 0 var(--space-4);
 }
 
