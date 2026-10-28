@@ -1,0 +1,72 @@
+.wrapper {
+    position: relative;
+    width: fit-content;
+}
+
+.native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.trigger {
+    text-align: start !important;
+    padding: 0 var(--space-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.trigger.opened {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.trigger .openInicator {
+    transition: transform 100ms linear;
+}
+
+.trigger.opened .openInicator {
+    transform: rotate(180deg);
+}
+
+.dialog {
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.option {
+    --option-bg: var(--bg-primary);
+    --option-fg: var(--fg-on-bg-primary);
+
+    height: 69px;
+    width: 100%;
+    border: none;
+    background-color: var(--option-bg);
+    font-weight: 700;
+    font-size: var(--text-lg);
+    text-align: start;
+    padding: 0 var(--space-5);
+    color: var(--option-fg);
+    cursor: pointer;
+}
+
+.option:hover {
+    --option-bg: var(--bg-secondary);
+    --option-fg: var(--fg-on-bg-secondary);
+}
+
+.optionSeparator {
+    width: 150px;
+    height: 1px;
+    margin: auto;
+}

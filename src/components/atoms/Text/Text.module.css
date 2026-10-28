@@ -53,3 +53,7 @@
 .on-secondary {
     color: var(--fg-on-bg-secondary);
 }
+
+.bold {
+    font-weight: 600;
+}

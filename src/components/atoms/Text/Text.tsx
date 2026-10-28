@@ -15,12 +15,14 @@ type TextColor =
 type Props<T extends TextType> = React.ComponentProps<T> & {
     size?: TextSize
     color?: TextColor
+    bold?: boolean
 }
 
 const TextBase: React.FC<{ as: TextType } & Props<any>> = ({
     as: Tag,
     size = 'md',
     color = 'default',
+    bold,
     className,
     ...rest
 }) => {
@@ -30,6 +32,7 @@ const TextBase: React.FC<{ as: TextType } & Props<any>> = ({
                 styles.text,
                 styles[size],
                 styles[color],
+                bold && styles.bold,
                 className
             )}
             {...rest}

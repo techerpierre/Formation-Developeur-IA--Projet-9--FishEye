@@ -2,7 +2,7 @@
     --button-bg: var(--bg-primary);
     --button-fg: var(--fg-on-bg-primary);
 
-    width: 170px;
+    min-width: 170px;
     height: 69px;
     background-color: var(--button-bg);
     color: var(--button-fg);

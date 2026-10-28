@@ -1,9 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useEffect, useId, useRef } from 'react'
+import React, { useId } from 'react'
 import { Text } from '@/components/atoms/Text/Text'
 import styles from './Modal.module.css'
+import { useControledDialog } from '@/hooks/useControledDialog'
 
 type Props = React.PropsWithChildren & {
     show: boolean
@@ -18,12 +19,7 @@ export const Modal: React.FC<Props> = ({
     children,
 }) => {
     const titleId = useId()
-    const dialogRef = useRef<HTMLDialogElement>(null)
-
-    useEffect(() => {
-        if (!dialogRef.current) return
-        dialogRef.current[show ? 'showModal' : 'close']()
-    }, [show])
+    const dialogRef = useControledDialog(show, { modal: true })
 
     const handleDialogClick = (event: React.MouseEvent<HTMLDialogElement>) => {
         if (event.target === dialogRef.current) onCloseRequest()
