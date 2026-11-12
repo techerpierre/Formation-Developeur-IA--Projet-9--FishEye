@@ -11,10 +11,10 @@ type Props = {
 export const Navbar: React.FC<Props> = ({ title }) => {
     return (
         <header className={styles.navbar}>
-            <Link href="/" aria-label="Fisheye Home page">
+            <Link href="/">
                 <Image
                     src="/logo.svg"
-                    alt=""
+                    alt="Fisheye Home page"
                     width={200}
                     className={styles.logo}
                     height={50}
