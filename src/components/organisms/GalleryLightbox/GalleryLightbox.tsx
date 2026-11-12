@@ -77,18 +77,22 @@ export const GalleryLightbox: React.FC = () => {
                     />
                 )}
                 <div aria-hidden className={styles.prefetch}>
-                    <Image
-                        src={`/${previousMedia.image ?? 'media-placeholder.png'}`}
-                        alt=""
-                        width={1050}
-                        height={900}
-                    />
-                    <Image
-                        src={`/${nextMedia.image ?? 'media-placeholder.png'}`}
-                        alt=""
-                        width={1050}
-                        height={900}
-                    />
+                    {previousMedia.image && (
+                        <Image
+                            src={`/${previousMedia.image ?? 'media-placeholder.png'}`}
+                            alt=""
+                            width={1050}
+                            height={900}
+                        />
+                    )}
+                    {nextMedia.image && (
+                        <Image
+                            src={`/${nextMedia.image ?? 'media-placeholder.png'}`}
+                            alt=""
+                            width={1050}
+                            height={900}
+                        />
+                    )}
                 </div>
                 <Text.P size="lg" color="secondary">
                     {currentMedia.title}
