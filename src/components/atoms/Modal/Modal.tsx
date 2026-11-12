@@ -10,6 +10,7 @@ type Props = React.PropsWithChildren & {
     show: boolean
     onCloseRequest: () => void
     title: string
+    closeButtonAriaLabel?: string
 }
 
 export const Modal: React.FC<Props> = ({
@@ -17,6 +18,7 @@ export const Modal: React.FC<Props> = ({
     onCloseRequest,
     title,
     children,
+    closeButtonAriaLabel = "Close Modal"
 }) => {
     const titleId = useId()
     const dialogRef = useControledDialog(show, { modal: true })
@@ -44,7 +46,7 @@ export const Modal: React.FC<Props> = ({
                 </Text.H2>
                 <button
                     onClick={onCloseRequest}
-                    aria-label="Fermer la modal"
+                    aria-label={closeButtonAriaLabel}
                     className={styles.close}
                 >
                     <Image src="/close.svg" alt="" width={42} height={42} />

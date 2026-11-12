@@ -42,6 +42,7 @@ export const GalleryLightbox: React.FC = () => {
             ref={dialogRef}
             className={styles.lightbox}
             onCancel={handleDialogCancel}
+            aria-label="image closeup view"
         >
             <button
                 onClick={previous}
@@ -115,7 +116,7 @@ export const GalleryLightbox: React.FC = () => {
                 <button
                     onClick={close}
                     className={styles.close}
-                    aria-label="Close lightbox"
+                    aria-label="Close dialog"
                 >
                     <Image
                         src="/close-lightbox.svg"

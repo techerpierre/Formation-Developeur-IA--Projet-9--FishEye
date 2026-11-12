@@ -11,7 +11,7 @@ type Props = {
 export const Navbar: React.FC<Props> = ({ title }) => {
     return (
         <header className={styles.navbar}>
-            <Link href="/" aria-label="Retour à l'accueil FishEye">
+            <Link href="/" aria-label="Fisheye Home page">
                 <Image
                     src="/logo.svg"
                     alt=""

@@ -26,11 +26,12 @@ export const ContactModal: React.FC<Props> = ({ photographer }) => {
 
     return (
         <>
-            <Button onClick={() => setShow(true)}>Contactez-moi</Button>
+            <Button onClick={() => setShow(true)} aria-label='Contact Me'>Contactez-moi</Button>
             <Modal
                 show={show}
                 onCloseRequest={() => setShow(false)}
                 title={`Contactez-moi ${photographer.name}`}
+                closeButtonAriaLabel='Close Contact form'
             >
                 <form onSubmit={handleFormSubmit} className={styles.form}>
                     <FormField label="Prénom" htmlFor="firstname">

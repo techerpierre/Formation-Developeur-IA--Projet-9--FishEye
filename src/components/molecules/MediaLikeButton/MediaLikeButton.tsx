@@ -39,7 +39,7 @@ export const MediaLikeButton: React.FC<Props> = ({
             <button
                 onClick={handleLikeClick}
                 className={styles.button}
-                aria-label="Liker ce poste"
+                aria-label="likes"
             >
                 <Image
                     src={isLiked ? '/like-filled.svg' : '/like-outlined.svg'}
