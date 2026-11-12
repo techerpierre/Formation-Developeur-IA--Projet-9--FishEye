@@ -17,8 +17,11 @@ export const MediaCard: React.FC<Props> = ({ media }) => {
 
     return (
         <article className={styles.card}>
-            <div
-                onClick={() => goTo(media.id)} // Note: Wrapper l'image dans un button ou un lien plus tard.
+            <button
+                type="button"
+                className={styles.trigger}
+                onClick={() => goTo(media.id)}
+                aria-label={`${media.title}, closeup view`}
             >
                 {media.video ? (
                     <video
@@ -40,7 +43,7 @@ export const MediaCard: React.FC<Props> = ({ media }) => {
                         className={styles.image}
                     />
                 )}
-            </div>
+            </button>
             <div className={styles.infos}>
                 <Text.Span size="xl" color="primary">
                     {media.title}

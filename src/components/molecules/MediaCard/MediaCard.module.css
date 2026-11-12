@@ -5,6 +5,13 @@
     gap: var(--space-2);
 }
 
+.card .trigger {
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+}
+
 .card .image {
     border-radius: 5px;
     object-fit: cover;
