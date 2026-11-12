@@ -27,10 +27,10 @@ export const GalleryLightbox: React.FC = () => {
     }
 
     const handleDialogKeydown: React.KeyboardEventHandler = (e) => {
-        if (e.key == 'ArrowLeft') {
+        if (e.key === 'ArrowLeft') {
             e.preventDefault()
             previous()
-        } else if (e.key == 'ArrowRight') {
+        } else if (e.key === 'ArrowRight') {
             e.preventDefault()
             next()
         }
