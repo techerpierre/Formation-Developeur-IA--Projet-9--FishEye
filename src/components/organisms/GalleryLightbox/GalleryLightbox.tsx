@@ -19,23 +19,30 @@ export const GalleryLightbox: React.FC = () => {
     } = useGalleryLightbox()
     const dialogRef = useControledDialog(isOpen, { modal: true })
 
-    const handleDialogCancel: React.ReactEventHandler<HTMLDialogElement> = (e) => {
+    const handleDialogCancel: React.ReactEventHandler<HTMLDialogElement> = (
+        e
+    ) => {
         e.preventDefault()
         close()
     }
 
     const handleDialogKeydown: React.KeyboardEventHandler = (e) => {
-        if (e.key == "ArrowLeft") {
+        if (e.key == 'ArrowLeft') {
             e.preventDefault()
             previous()
-        } else if (e.key == "ArrowRight") {
+        } else if (e.key == 'ArrowRight') {
             e.preventDefault()
             next()
         }
     }
 
     return (
-        <dialog onKeyDown={handleDialogKeydown} ref={dialogRef} className={styles.lightbox} onCancel={handleDialogCancel}>
+        <dialog
+            onKeyDown={handleDialogKeydown}
+            ref={dialogRef}
+            className={styles.lightbox}
+            onCancel={handleDialogCancel}
+        >
             <button onClick={previous} className={styles.navigation}>
                 <Image
                     src="/previous-lightbox.svg"
