@@ -1,8 +1,10 @@
 //import styles from "./page.module.css";
 
+import { PhotographerStatsBar } from '@/components/molecules/PhotographerStatsBar/PhotographerStatsBar'
 import { PhotographerBanner } from '@/components/organisms/PhotographerBanner/PhotographerBanner'
 import { PhotographerGallery } from '@/components/organisms/PhotographerGallery/PhotographerGallery'
 import { PageLayout } from '@/components/templates/PageLayout/PageLayout'
+import { PhotographerStatsProvider } from '@/contexts/PhotographerStatsContext'
 import { getAllMediasForPhotographer, MediaOrderBy } from '@/use-cases/media'
 import { getPhotographer } from '@/use-cases/photographer'
 import { notFound } from 'next/navigation'
@@ -24,7 +26,13 @@ export default async function Photographer({
     return (
         <PageLayout>
             <PhotographerBanner photographer={photographer} />
-            <PhotographerGallery medias={medias} />
+            <PhotographerStatsProvider
+                initialTotalLikes={photographer.totalLikes}
+                price={photographer.price}
+            >
+                <PhotographerGallery medias={medias} />
+                <PhotographerStatsBar />
+            </PhotographerStatsProvider>
         </PageLayout>
     )
 }

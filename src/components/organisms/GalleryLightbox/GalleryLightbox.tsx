@@ -31,14 +31,25 @@ export const GalleryLightbox: React.FC = () => {
                 />
             </button>
             <div className={styles.main}>
-                <Image
-                    src={`/${currentMedia.image ?? 'media-placeholder.png'}`}
-                    alt={currentMedia.title}
-                    width={1050}
-                    height={900}
-                    priority
-                    className={styles.image}
-                />
+                {currentMedia.video ? (
+                    <video
+                        key={currentMedia.id}
+                        src={`/${currentMedia.video}`}
+                        controls
+                        autoPlay
+                        className={styles.image}
+                        aria-label={currentMedia.title}
+                    />
+                ) : (
+                    <Image
+                        src={`/${currentMedia.image ?? 'media-placeholder.png'}`}
+                        alt={currentMedia.title}
+                        width={1050}
+                        height={900}
+                        priority
+                        className={styles.image}
+                    />
+                )}
                 <div aria-hidden className={styles.prefetch}>
                     <Image
                         src={`/${previousMedia.image ?? 'media-placeholder.png'}`}

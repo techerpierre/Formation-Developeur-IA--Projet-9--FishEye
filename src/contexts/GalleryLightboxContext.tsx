@@ -86,7 +86,7 @@ export const useGalleryLightbox = () => {
     const ctx = useContext(GalleryLightboxContext)
     if (!ctx) {
         throw new Error(
-            'GalleryLightbox must be used into a GalleryLightboxProvider'
+            'useGalleryLightbox must be used into a GalleryLightboxProvider'
         )
     }
     return ctx

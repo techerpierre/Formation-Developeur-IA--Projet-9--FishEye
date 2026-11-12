@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useId, useRef, useState } from 'react'
+import React, { useId, useRef, useState } from 'react'
 import styles from './Select.module.css'
 import clsx from '@/lib/clsx'
 import { Button } from '../Button/Button'

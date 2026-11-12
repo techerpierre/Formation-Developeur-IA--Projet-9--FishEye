@@ -5,6 +5,7 @@ import { updateNumberOfLikesAction } from '@/actions/media'
 import { Text } from '@/components/atoms/Text/Text'
 import Image from 'next/image'
 import styles from './MediaLikeButton.module.css'
+import { usePhotographerStats } from '@/contexts/PhotographerStatsContext'
 
 type Props = {
     mediaId: number
@@ -17,6 +18,7 @@ export const MediaLikeButton: React.FC<Props> = ({
 }) => {
     const [isLiked, setIsLiked] = useState(true)
     const [likes, setLikes] = useState(initialLikes)
+    const { incrementTotalLikes } = usePhotographerStats()
 
     useEffect(() => {
         setIsLiked(isLikePersisted(mediaId))
@@ -27,6 +29,7 @@ export const MediaLikeButton: React.FC<Props> = ({
         setIsLiked(true)
         setLikes(likes + 1)
         persistLike(mediaId)
+        incrementTotalLikes()
         updateNumberOfLikesAction(mediaId, likes + 1)
     }
 

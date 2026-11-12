@@ -17,14 +17,30 @@ export const MediaCard: React.FC<Props> = ({ media }) => {
 
     return (
         <article className={styles.card}>
-            <Image
-                src={`/${media.image ?? 'media-placeholder.png'}`}
-                alt={media.title}
-                width={350}
-                height={300}
-                className={styles.image}
+            <div
                 onClick={() => goTo(media.id)} // Note: Wrapper l'image dans un button ou un lien plus tard.
-            />
+            >
+                {media.video ? (
+                    <video
+                        src={`/${media.video}`}
+                        className={styles.image}
+                        width={350}
+                        height={300}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        aria-label={media.title}
+                    />
+                ) : (
+                    <Image
+                        src={`/${media.image ?? 'media-placeholder.png'}`}
+                        alt={media.title}
+                        width={350}
+                        height={300}
+                        className={styles.image}
+                    />
+                )}
+            </div>
             <div className={styles.infos}>
                 <Text.Span size="xl" color="primary">
                     {media.title}
