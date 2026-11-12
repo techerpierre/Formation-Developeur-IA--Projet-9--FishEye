@@ -88,7 +88,6 @@ export const Select: React.FC<Props> = ({
                 aria-haspopup="listbox"
                 aria-controls={listId}
                 aria-expanded={open}
-                tabIndex={-1}
                 onClick={() => setOpen((o) => !o)}
             >
                 {selected?.label ?? 'Sélectionner'}
@@ -106,10 +105,11 @@ export const Select: React.FC<Props> = ({
                 className={clsx(styles.dialog, contentClassName)}
                 style={contentStyle}
                 onClose={() => setOpen(false)}
+                role="listbox"
             >
                 <ul id={listId}>
                     {displayedOptions.map((option) => (
-                        <li key={option.value}>
+                        <li key={option.value} role="option" aria-selected={selected === option}>
                             <div className={styles.optionSeparator} />
                             <button
                                 type="button"
