@@ -43,7 +43,11 @@ export const GalleryLightbox: React.FC = () => {
             className={styles.lightbox}
             onCancel={handleDialogCancel}
         >
-            <button onClick={previous} className={styles.navigation}>
+            <button
+                onClick={previous}
+                className={styles.navigation}
+                aria-label="Previous image"
+            >
                 <Image
                     src="/previous-lightbox.svg"
                     alt=""
@@ -91,7 +95,11 @@ export const GalleryLightbox: React.FC = () => {
                 </Text.P>
             </div>
             <div className={styles.rightSide}>
-                <button onClick={next} className={styles.navigation}>
+                <button
+                    onClick={next}
+                    className={styles.navigation}
+                    aria-label="Next image"
+                >
                     <Image
                         src="/next-lightbox.svg"
                         alt=""
@@ -100,7 +108,11 @@ export const GalleryLightbox: React.FC = () => {
                         className={styles.navImage}
                     />
                 </button>
-                <button onClick={close} className={styles.close}>
+                <button
+                    onClick={close}
+                    className={styles.close}
+                    aria-label="Close lightbox"
+                >
                     <Image
                         src="/close-lightbox.svg"
                         alt=""

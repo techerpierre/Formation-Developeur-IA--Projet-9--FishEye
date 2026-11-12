@@ -13,7 +13,9 @@ export const PhotographerStatsBar: React.FC = () => {
     return (
         <aside className={styles.bar} aria-label="Informations du photographe">
             <div className={styles.leftSide}>
-                <Text.Span size="lg" bold>{totalLikes}</Text.Span>
+                <Text.Span size="lg" bold>
+                    {totalLikes}
+                </Text.Span>
                 <Image
                     src="/like-filled-black.svg"
                     alt="Like Icon"
@@ -21,7 +23,9 @@ export const PhotographerStatsBar: React.FC = () => {
                     height={22}
                 />
             </div>
-            <Text.Span size="lg" bold>{price}€ / jour</Text.Span>
+            <Text.Span size="lg" bold>
+                {price}€ / jour
+            </Text.Span>
         </aside>
     )
 }
