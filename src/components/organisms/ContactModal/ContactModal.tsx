@@ -19,9 +19,10 @@ export const ContactModal: React.FC<Props> = ({ photographer }) => {
 
     const handleFormSubmit = (event: React.SubmitEvent) => {
         event.preventDefault()
-        console.log(`Prénom: ${event.target['firstname'].value}`)
-        console.log(`Nom:    ${event.target['lastname'].value}`)
-        console.log(`Email:  ${event.target['email'].value}`)
+        console.log(`Prénom:  ${event.target['firstname'].value}`)
+        console.log(`Nom:     ${event.target['lastname'].value}`)
+        console.log(`Email:   ${event.target['email'].value}`)
+        console.log(`Message: ${event.target['message'].value}`)
     }
 
     return (
