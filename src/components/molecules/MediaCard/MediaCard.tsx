@@ -32,12 +32,11 @@ export const MediaCard: React.FC<Props> = ({ media }) => {
                         muted
                         playsInline
                         preload="metadata"
-                        aria-label={media.title}
                     />
                 ) : (
                     <Image
                         src={`/${media.image ?? 'media-placeholder.png'}`}
-                        alt={media.title}
+                        alt=""
                         width={350}
                         height={300}
                         className={styles.image}
