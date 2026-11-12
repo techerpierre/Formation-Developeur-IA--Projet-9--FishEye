@@ -109,20 +109,18 @@ export const Select: React.FC<Props> = ({
                 className={clsx(styles.dialog, contentClassName)}
                 style={contentStyle}
                 onClose={() => setOpen(false)}
-                role="listbox"
             >
-                <ul id={listId}>
+                <ul id={listId} role="listbox">
                     {displayedOptions.map((option) => (
-                        <li key={option.value} role="option" aria-selected={selected === option}>
+                        <li key={option.value} role="option" aria-selected={false}>
                             <div className={styles.optionSeparator} />
-                            <button
-                                type="button"
+                            <span
                                 onClick={handleOptionClicked(option)}
                                 className={clsx(styles.option, optionClassName)}
                                 style={optionStyle}
                             >
                                 {option.label}
-                            </button>
+                            </span>
                         </li>
                     ))}
                 </ul>

@@ -48,6 +48,8 @@
     --option-bg: var(--bg-primary);
     --option-fg: var(--fg-on-bg-primary);
 
+    display: flex;
+    align-items: center;
     height: 69px;
     width: 100%;
     border: none;

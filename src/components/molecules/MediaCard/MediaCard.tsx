@@ -44,9 +44,9 @@ export const MediaCard: React.FC<Props> = ({ media }) => {
                 )}
             </button>
             <div className={styles.infos}>
-                <Text.Span size="xl" color="primary">
+                <Text.H2 size="xl" color="primary">
                     {media.title}
-                </Text.Span>
+                </Text.H2>
                 <MediaLikeButton mediaId={media.id} likes={media.likes} />
             </div>
         </article>
