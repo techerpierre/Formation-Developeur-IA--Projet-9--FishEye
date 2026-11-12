@@ -54,14 +54,18 @@ export const Select: React.FC<Props> = ({
         setOpen(false)
     }
 
-    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleSelectChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
         setValue(e.target.value)
         onValueChange?.(e.target.value)
         onChange?.(e)
     }
 
+    const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
+        if (e.key === "Escape") setOpen(false)
+    }
+
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} onKeyDown={handleKeyDown}>
             <select
                 ref={selectRef}
                 className={styles.native}
