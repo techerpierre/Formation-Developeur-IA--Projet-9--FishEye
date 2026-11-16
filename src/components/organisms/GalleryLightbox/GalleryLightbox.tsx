@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useGalleryLightbox } from '@/contexts/GalleryLightboxContext'
 import Image from 'next/image'
 import styles from './GalleryLightbox.module.css'
 import { useControledDialog } from '@/hooks/useControledDialog'
 import { Text } from '@/components/atoms/Text/Text'
+import clsx from '@/lib/clsx'
 
 export const GalleryLightbox: React.FC = () => {
     const {
@@ -13,11 +14,17 @@ export const GalleryLightbox: React.FC = () => {
         currentMedia,
         previousMedia,
         nextMedia,
+        isLoading,
         previous,
         next,
         close,
+        setIsLoading
     } = useGalleryLightbox()
     const dialogRef = useControledDialog(isOpen, { modal: true })
+
+    useEffect(() => {
+        setIsLoading(true);
+    }, [currentMedia?.id])
 
     const handleDialogCancel: React.ReactEventHandler<HTMLDialogElement> = (
         e
@@ -34,6 +41,10 @@ export const GalleryLightbox: React.FC = () => {
             e.preventDefault()
             next()
         }
+    }
+
+    const handleMediaLoaded = () => {
+        setIsLoading(false)
     }
 
     return (
@@ -58,46 +69,34 @@ export const GalleryLightbox: React.FC = () => {
                 />
             </button>
             <div className={styles.main}>
-                {currentMedia.video ? (
+                {currentMedia?.video && (
                     <video
                         key={currentMedia.id}
                         src={`/${currentMedia.video}`}
                         controls
                         autoPlay
-                        className={styles.image}
+                        className={clsx(styles.image, isLoading && styles.loading)}
                         aria-label={currentMedia.title}
+                        onLoadedData={handleMediaLoaded}
                     />
-                ) : (
+                )}
+                {currentMedia && !currentMedia.video  && (
                     <Image
+                        key={currentMedia.id}
                         src={`/${currentMedia.image ?? 'media-placeholder.png'}`}
                         alt={currentMedia.title}
                         width={1050}
                         height={900}
                         priority
-                        className={styles.image}
+                        className={clsx(styles.image, isLoading && styles.loading)}
+                        onLoad={handleMediaLoaded}
                     />
                 )}
-                <div aria-hidden className={styles.prefetch}>
-                    {previousMedia.image && (
-                        <Image
-                            src={`/${previousMedia.image ?? 'media-placeholder.png'}`}
-                            alt=""
-                            width={1050}
-                            height={900}
-                        />
-                    )}
-                    {nextMedia.image && (
-                        <Image
-                            src={`/${nextMedia.image ?? 'media-placeholder.png'}`}
-                            alt=""
-                            width={1050}
-                            height={900}
-                        />
-                    )}
-                </div>
+                {!isLoading && currentMedia && (
                 <Text.P size="lg" color="secondary">
                     {currentMedia.title}
                 </Text.P>
+                )}
             </div>
             <div className={styles.rightSide}>
                 <button

@@ -27,6 +27,24 @@
     width: var(--image-size);
     max-height: 80vh;
     height: auto;
+    opacity: 1;
+}
+
+.lightbox .image.loading {
+    background-color: var(--fg-light);
+    animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.1;
+    }
 }
 
 .lightbox .navigation {
@@ -48,15 +66,6 @@
     position: absolute;
     top: 0;
     right: 12px;
-}
-
-.prefetch {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
 }
 
 @media (max-width: 768px) {

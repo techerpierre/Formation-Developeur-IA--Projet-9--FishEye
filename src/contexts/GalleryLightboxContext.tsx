@@ -7,13 +7,15 @@ import { useSearchParams } from 'next/navigation'
 
 type GalleryLightboxContextType = {
     isOpen: boolean
-    currentMedia: Media
-    previousMedia: Media
-    nextMedia: Media
+    currentMedia: Media | null
+    previousMedia: Media | null
+    nextMedia: Media | null
+    isLoading: boolean
     next: () => void
     previous: () => void
     goTo: (mediaId: number) => void
     close: () => void
+    setIsLoading: (isLoading: boolean) => void;
 }
 
 const GalleryLightboxContext = createContext<
@@ -29,25 +31,28 @@ export const GalleryLightboxProvider: React.FC<Props> = ({
     children,
 }) => {
     const searchParams = useSearchParams()
-    const [currentIndex, setCurrentIndex] = useQueryState<number>('lightbox', 0)
+    const [currentIndex, setCurrentIndex] = useQueryState<number | null>('lightbox', null)
     const [isOpen, setIsOpen] = useState(searchParams.has('lightbox'))
+    const [isLoading, setIsLoading] = useState(false)
 
-    const currentMedia = useMemo(() => medias[currentIndex], [currentIndex])
+    const currentMedia = useMemo(() => currentIndex != null ? medias[currentIndex] : null, [currentIndex])
     const previousMedia = useMemo(
-        () => medias[(currentIndex - 1 + medias.length) % medias.length],
+        () => currentIndex != null ? medias[(currentIndex - 1 + medias.length) % medias.length] : null,
         [currentIndex]
     )
     const nextMedia = useMemo(
-        () => medias[(currentIndex + 1) % medias.length],
+        () => currentIndex != null ? medias[(currentIndex + 1) % medias.length] : null,
         [currentIndex]
     )
 
     const next = () => {
-        setCurrentIndex((currentIndex + 1) % medias.length)
+        setCurrentIndex(currentIndex != null ? (currentIndex + 1) % medias.length : null)
+        setIsLoading(true)
     }
 
     const previous = () => {
-        setCurrentIndex((currentIndex - 1 + medias.length) % medias.length)
+        setCurrentIndex(currentIndex != null ? (currentIndex - 1 + medias.length) % medias.length : null)
+        setIsLoading(true)
     }
 
     const goTo = (mediaId: number) => {
@@ -57,6 +62,7 @@ export const GalleryLightboxProvider: React.FC<Props> = ({
         }
         setCurrentIndex(mediaIndex)
         setIsOpen(true)
+        setIsLoading(true)
     }
 
     const close = () => {
@@ -75,6 +81,8 @@ export const GalleryLightboxProvider: React.FC<Props> = ({
                 previous,
                 goTo,
                 close,
+                isLoading,
+                setIsLoading,
             }}
         >
             {children}
