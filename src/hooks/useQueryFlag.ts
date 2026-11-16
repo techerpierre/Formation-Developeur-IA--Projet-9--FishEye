@@ -13,9 +13,12 @@ export const useQueryFlag = (key: string) => {
     const setValue = useCallback(
         (open: boolean) => {
             const params = new URLSearchParams(searchParams.toString())
+
             if (open) params.set(key, 'true')
             else params.delete(key)
+
             const query = params.toString()
+
             router.replace(query ? `${pathname}?${query}` : pathname, {
                 scroll: false,
             })
