@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import clsx from '@/lib/clsx'
 import './globals.css'
+import { ToastProvider } from '@/contexts/ToastContext'
 
 const dmSans = DM_Sans({
     variable: '--font-dm-sans',
@@ -17,7 +18,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
     return (
         <html lang="fr" className={clsx(dmSans.className)}>
-            <body>{children}</body>
+            <body>
+                <ToastProvider>{children}</ToastProvider>
+            </body>
         </html>
     )
 }

@@ -15,7 +15,10 @@ type Props = {
 export const PhotographerGallery: React.FC<Props> = ({ medias }) => {
     return (
         <GalleryLightboxProvider medias={medias}>
-            <section className={styles.gallery} aria-label='Photographer Gallery'>
+            <section
+                className={styles.gallery}
+                aria-label="Photographer Gallery"
+            >
                 <div className={styles.header}>
                     <GallerySortFilter />
                 </div>

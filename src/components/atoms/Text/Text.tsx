@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from './Text.module.css'
 import clsx from '@/lib/clsx'
+
+import styles from './Text.module.css'
 
 type TextType = 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'label'
 type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'

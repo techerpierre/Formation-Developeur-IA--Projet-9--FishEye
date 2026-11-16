@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { updateNumberOfLikesAction } from '@/actions/media'
 import { Text } from '@/components/atoms/Text/Text'
 import Image from 'next/image'
-import styles from './MediaLikeButton.module.css'
 import { usePhotographerStats } from '@/contexts/PhotographerStatsContext'
+
+import styles from './MediaLikeButton.module.css'
+import { useToast } from '@/contexts/ToastContext'
 
 type Props = {
     mediaId: number
@@ -19,18 +21,27 @@ export const MediaLikeButton: React.FC<Props> = ({
     const [isLiked, setIsLiked] = useState(true)
     const [likes, setLikes] = useState(initialLikes)
     const { incrementTotalLikes } = usePhotographerStats()
+    const toast = useToast()
 
     useEffect(() => {
         setIsLiked(isLikePersisted(mediaId))
     }, [])
 
-    const handleLikeClick = () => {
+    const handleLikeClick = async () => {
         if (isLiked) return
+        const initialLikes = likes
         setIsLiked(true)
-        setLikes(likes + 1)
-        persistLike(mediaId)
+        setLikes(initialLikes + 1)
         incrementTotalLikes()
-        updateNumberOfLikesAction(mediaId, likes + 1)
+        const res = await updateNumberOfLikesAction(mediaId, likes + 1)
+        if (!res.ok) {
+            setIsLiked(false)
+            setLikes(initialLikes)
+            incrementTotalLikes(-1)
+            toast.show(res.error)
+            return
+        }
+        persistLike(mediaId)
     }
 
     return (

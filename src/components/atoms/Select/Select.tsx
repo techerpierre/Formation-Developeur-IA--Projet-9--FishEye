@@ -1,11 +1,12 @@
 'use client'
 
 import React, { useId, useRef, useState } from 'react'
-import styles from './Select.module.css'
 import clsx from '@/lib/clsx'
 import { Button } from '../Button/Button'
 import Image from 'next/image'
 import { useControledDialog } from '@/hooks/useControledDialog'
+
+import styles from './Select.module.css'
 
 export type SelectOption<T = any> = {
     value: T
@@ -54,14 +55,16 @@ export const Select: React.FC<Props> = ({
         setOpen(false)
     }
 
-    const handleSelectChange: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
+    const handleSelectChange: React.ChangeEventHandler<HTMLSelectElement> = (
+        e
+    ) => {
         setValue(e.target.value)
         onValueChange?.(e.target.value)
         onChange?.(e)
     }
 
     const handleKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
-        if (e.key === "Escape") setOpen(false)
+        if (e.key === 'Escape') setOpen(false)
     }
 
     return (
@@ -112,7 +115,11 @@ export const Select: React.FC<Props> = ({
             >
                 <ul id={listId} role="listbox">
                     {displayedOptions.map((option) => (
-                        <li key={option.value} role="option" aria-selected={false}>
+                        <li
+                            key={option.value}
+                            role="option"
+                            aria-selected={false}
+                        >
                             <div className={styles.optionSeparator} />
                             <span
                                 onClick={handleOptionClicked(option)}

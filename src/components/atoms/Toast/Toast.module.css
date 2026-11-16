@@ -1,0 +1,5 @@
+.toast {
+    background-color: var(--bg-primary);
+    padding: var(--space-4);
+    max-width: 250px;
+}

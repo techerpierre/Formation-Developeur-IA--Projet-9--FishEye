@@ -5,7 +5,7 @@ import { createContext, useContext, useState } from 'react'
 type PhotographerStatsContextType = {
     totalLikes: number
     price: number
-    incrementTotalLikes: () => void
+    incrementTotalLikes: (incrementCount?: number) => void
 }
 
 const PhotographerStatsContext = createContext<
@@ -24,8 +24,8 @@ export const PhotographerStatsProvider: React.FC<Props> = ({
 }) => {
     const [totalLikes, setTotalLikes] = useState(initialTotalLikes)
 
-    const incrementTotalLikes = () => {
-        setTotalLikes((prev) => prev + 1)
+    const incrementTotalLikes = (incrementCount: number = 1) => {
+        setTotalLikes((prev) => prev + incrementCount)
     }
 
     return (

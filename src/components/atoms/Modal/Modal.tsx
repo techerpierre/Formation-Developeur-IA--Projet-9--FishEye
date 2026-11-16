@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import React, { useId } from 'react'
 import { Text } from '@/components/atoms/Text/Text'
-import styles from './Modal.module.css'
 import { useControledDialog } from '@/hooks/useControledDialog'
+
+import styles from './Modal.module.css'
 
 type Props = React.PropsWithChildren & {
     show: boolean
@@ -18,7 +19,7 @@ export const Modal: React.FC<Props> = ({
     onCloseRequest,
     title,
     children,
-    closeButtonAriaLabel = "Close Modal"
+    closeButtonAriaLabel = 'Close Modal',
 }) => {
     const titleId = useId()
     const dialogRef = useControledDialog(show, { modal: true })
