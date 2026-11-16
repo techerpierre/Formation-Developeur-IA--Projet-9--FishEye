@@ -65,8 +65,10 @@ export const useQueryState = <T extends QueryState>(
 }
 
 const parseScalar = <T extends QueryScalar>(raw: string, fallback: T): T => {
-    if (fallback == null) return raw as T
-    if (typeof fallback === 'number') return Number(raw) as T
+    if (typeof fallback === 'number' || fallback == null) {
+        const n = Number(raw)
+        if (!Number.isNaN(n)) return n as T
+      }
     if (typeof fallback === 'boolean') return (raw === 'true') as T
     return raw as T
 }
