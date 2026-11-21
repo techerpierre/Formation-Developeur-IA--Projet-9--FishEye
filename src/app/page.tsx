@@ -1,6 +1,8 @@
 import { getAllPhotographers } from '@/use-cases/photographer'
 import { PhotographerCard } from '@/components/molecules/PhotographerCard/PhotographerCard'
 import { PageLayout } from '@/components/templates/PageLayout/PageLayout'
+import { Text } from '@/components/atoms/Text/Text'
+
 import styles from './page.module.css'
 
 export default async function Home() {
@@ -9,6 +11,7 @@ export default async function Home() {
     return (
         <PageLayout title="Nos photographes">
             <section>
+                <Text.H2 className={styles.title}>Liste des photographes</Text.H2>
                 <ul className={styles.photographers}>
                     {photographers.map((p) => (
                         <li key={p.id}>
